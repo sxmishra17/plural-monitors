@@ -1,0 +1,51 @@
+{
+  "name": "plural-monitors",
+  "version": "1.0.0",
+  "description": "Per-monitor taskbars for Windows — every screen gets its own taskbar showing minimized apps.",
+  "main": "main/index.js",
+  "author": "Satish",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build:win": "electron-builder --win",
+    "build:win-portable": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "electron": "^29.4.6",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.satish.plural-monitors",
+    "productName": "Plural Monitors",
+    "icon": "assets/icon.ico",
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "main/**/*",
+      "renderer/**/*",
+      "scripts/**/*",
+      "assets/**/*",
+      "plugins/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      { "from": "scripts", "to": "scripts" }
+    ]
+  }
+}

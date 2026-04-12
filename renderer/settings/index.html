@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plural Monitors — Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <!-- Custom title bar -->
+  <div id="titlebar">
+    <div id="titlebar-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+    </div>
+    <span id="titlebar-text">Plural Monitors — Settings</span>
+    <button id="close-btn" aria-label="Close settings">✕</button>
+  </div>
+
+  <div id="content">
+    <!-- Left sidebar navigation -->
+    <nav id="sidebar">
+      <button class="nav-item active" data-panel="general" id="nav-general">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>General</span>
+      </button>
+      <button class="nav-item" data-panel="appearance" id="nav-appearance">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Appearance</span>
+      </button>
+      <button class="nav-item" data-panel="monitors" id="nav-monitors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>Monitors</span>
+      </button>
+      <button class="nav-item" data-panel="about" id="nav-about">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>About</span>
+      </button>
+    </nav>
+
+    <!-- Main panel area -->
+    <main id="panels">
+
+      <!-- ── General panel ────────────────────────────────── -->
+      <section class="panel active" id="panel-general">
+        <h2 class="panel-title">General</h2>
+
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="toggle-autolaunch">Launch at startup</label>
+              <p class="setting-desc">Start Plural Monitors automatically when Windows starts.</p>
+            </div>
+            <label class="toggle" for="toggle-autolaunch">
+              <input type="checkbox" id="toggle-autolaunch" data-key="autoLaunchOnStartup">
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="toggle-monitor-label">Show monitor label</label>
+              <p class="setting-desc">Display "Monitor 1", "Monitor 2" badge in each taskbar.</p>
+            </div>
+            <label class="toggle" for="toggle-monitor-label">
+              <input type="checkbox" id="toggle-monitor-label" data-key="showMonitorLabel">
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="polling-interval">Refresh interval</label>
+              <p class="setting-desc">How often (ms) window states are polled. Lower = more responsive.</p>
+            </div>
+            <div class="input-group">
+              <input type="number" id="polling-interval" data-key="pollingIntervalMs"
+                min="500" max="5000" step="100" class="text-input" style="width:80px">
+              <span class="input-unit">ms</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Appearance panel ─────────────────────────────── -->
+      <section class="panel" id="panel-appearance">
+        <h2 class="panel-title">Appearance</h2>
+
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="taskbar-height">Taskbar height</label>
+              <p class="setting-desc">Height of each monitor's taskbar in pixels.</p>
+            </div>
+            <div class="slider-group">
+              <input type="range" id="taskbar-height" data-key="taskbarHeight"
+                min="40" max="72" step="2" class="slider">
+              <span id="taskbar-height-val" class="slider-val">52px</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="taskbar-opacity">Taskbar opacity</label>
+              <p class="setting-desc">Transparency level of the taskbar background.</p>
+            </div>
+            <div class="slider-group">
+              <input type="range" id="taskbar-opacity" data-key="taskbarOpacity"
+                min="0.3" max="1.0" step="0.05" class="slider">
+              <span id="taskbar-opacity-val" class="slider-val">90%</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <label class="setting-label" for="accent-color">Accent color</label>
+              <p class="setting-desc">Color used for highlights and active elements.</p>
+            </div>
+            <div class="color-picker-group">
+              <input type="color" id="accent-color" data-key="accentColor" class="color-input" value="#6366f1">
+              <span id="accent-color-val" class="color-hex">#6366f1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live preview strip -->
+        <div class="preview-section">
+          <p class="preview-label">Taskbar preview</p>
+          <div id="taskbar-preview">
+            <div class="preview-brand">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Monitor 1</span>
+            </div>
+            <div class="preview-windows">
+              <div class="preview-btn" id="prev-btn-1">
+                <div class="preview-icon">N</div>
+                <span>Notepad</span>
+              </div>
+              <div class="preview-btn">
+                <div class="preview-icon" style="background:rgba(99,102,241,0.2);">C</div>
+                <span>Chrome</span>
+              </div>
+            </div>
+            <div class="preview-gear">⚙</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Monitors panel ───────────────────────────────── -->
+      <section class="panel" id="panel-monitors">
+        <h2 class="panel-title">Monitors</h2>
+        <p class="panel-desc">Detected displays on this system.</p>
+        <div id="monitors-list">
+          <div class="loading-hint">Loading monitor info…</div>
+        </div>
+      </section>
+
+      <!-- ── About panel ──────────────────────────────────── -->
+      <section class="panel" id="panel-about">
+        <div class="about-content">
+          <div class="about-logo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h1 class="about-name">Plural Monitors</h1>
+          <p class="about-version">Version 1.0.0</p>
+          <p class="about-tagline">One taskbar per monitor. Every screen, independent.</p>
+          <div class="about-divider"></div>
+          <p class="about-tech">Built with Electron · Windows</p>
+          <div class="about-plugins" id="about-plugins">
+            <p class="plugins-header">Loaded Plugins</p>
+            <p class="plugins-empty">No plugins loaded</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
