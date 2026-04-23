@@ -48,4 +48,4 @@ npm run build:win
 The installer will be generated in the `dist/` directory.
 
 ## License 📜
-MIT License
+All Rights Reserved
