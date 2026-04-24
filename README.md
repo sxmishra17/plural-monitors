@@ -49,3 +49,7 @@ The installer will be generated in the `dist/` directory.
 
 ## License 📜
 All Rights Reserved
+
+---
+
+Developed by **Satish Mishra**, **Yuvatech Solutions USA, LLC**
